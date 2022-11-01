@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using ETrade.Dal;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<TradeContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("Baglanti")));
 
 var app = builder.Build();
 

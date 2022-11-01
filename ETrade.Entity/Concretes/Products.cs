@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,11 +13,15 @@ namespace ETrade.Entity.Concretes
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
         public int CategoryId { get; set; }
-        
+        public int VatId { get; set; }
         public int UnitId { get; set; }
         [ForeignKey("CategoryId")]
         public Categories Categories { get; set; }
         [ForeignKey("UnitId")]
         public Unit Unit { get; set; }
+        [ForeignKey("VatId")]
+        public Vat Vat { get; set; }
+        public ICollection<BasketDetail> BasketDetails { get; set; }
+
     }
 }

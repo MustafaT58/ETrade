@@ -12,5 +12,6 @@ namespace ETrade.Entity.Concretes
         public int CityId { get; set; }
         [ForeignKey("CityId")]
         public Cities Cities { get; set; }
+        public ICollection<Users> Users { get; set; }
     }
 }
