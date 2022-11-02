@@ -1,5 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using ETrade.Dal;
+using ETrade.Repos.Abstract;
+using ETrade.Entity.Concretes;
+using ETrade.Repos.Concretes;
+using ETrade.UI.Models;
+using ETrade.Uw;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +12,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<TradeContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("Baglanti")));
+builder.Services.AddScoped<IBasketDetailRep, BasketDetailRep<BasketDetail>>();
+builder.Services.AddScoped<IBasketMasterRep, BasketMasterRep<BasketMaster>>();
+builder.Services.AddScoped<ICategoriesRep, CategoriesRep<Categories>>();
+builder.Services.AddScoped<ICitiesRep, CitiesRep<Cities>>();
+builder.Services.AddScoped<ICountiesRep, CountiesRep<Counties>>();
+builder.Services.AddScoped<IProductsRep, ProductsRep<Products>>();
+builder.Services.AddScoped<ISuppliersRep, SuppliersRep<Suppliers>>();
+builder.Services.AddScoped<IUsersRep, UsersRep<Users>>();
+builder.Services.AddScoped<IUnitRep, UnitRep<Unit>>();
+builder.Services.AddScoped<IVatRep, VatRep<Vat>>();
+builder.Services.AddScoped<IUnit,UnitOw>();
+builder.Services.AddScoped<CityModel>();
+builder.Services.AddScoped<CategoriesModel>();
+builder.Services.AddScoped<UnitModel>();
+
 
 var app = builder.Build();
 

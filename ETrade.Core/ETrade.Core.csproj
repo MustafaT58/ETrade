@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ETrade.Dal\ETrade.Dal.csproj" />
+    <ProjectReference Include="..\ETrade.Entity\ETrade.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
