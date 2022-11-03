@@ -26,6 +26,7 @@ builder.Services.AddScoped<IUnit,UnitOw>();
 builder.Services.AddScoped<CityModel>();
 builder.Services.AddScoped<CategoriesModel>();
 builder.Services.AddScoped<UnitModel>();
+builder.Services.AddScoped<UsersModel>();
 
 
 var app = builder.Build();

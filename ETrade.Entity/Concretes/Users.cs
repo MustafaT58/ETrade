@@ -12,6 +12,7 @@ namespace ETrade.Entity.Concretes
     {
         public string Name { get; set; }
         public string Password { get; set; }
+        public bool Error { get; set; }
         public ICollection<BasketMaster> BasketMasters { get; set; }
         [ForeignKey("CountyId")]
         public Counties Counties { get; set; }

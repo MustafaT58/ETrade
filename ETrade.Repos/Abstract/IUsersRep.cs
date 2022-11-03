@@ -10,5 +10,6 @@ namespace ETrade.Repos.Abstract
 {
     public interface IUsersRep:IBaseRepository<Users>
     {
+        Users CreateUser(Users users);
     }
 }

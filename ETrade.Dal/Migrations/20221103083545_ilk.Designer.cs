@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ETrade.Dal.Migrations
 {
     [DbContext(typeof(TradeContext))]
-    [Migration("20221101103528_ilk")]
+    [Migration("20221103083545_ilk")]
     partial class ilk
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

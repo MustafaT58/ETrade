@@ -187,10 +187,10 @@ namespace ETrade.Dal.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
+                    UnitId = table.Column<int>(type: "int", nullable: false),
                     UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
-                    Ratio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    UnitId = table.Column<int>(type: "int", nullable: false)
+                    Ratio = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
