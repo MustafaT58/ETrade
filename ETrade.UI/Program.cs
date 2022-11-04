@@ -27,6 +27,8 @@ builder.Services.AddScoped<CityModel>();
 builder.Services.AddScoped<CategoriesModel>();
 builder.Services.AddScoped<UnitModel>();
 builder.Services.AddScoped<UsersModel>();
+builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromSeconds(15));
+
 
 
 var app = builder.Build();
@@ -43,6 +45,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 

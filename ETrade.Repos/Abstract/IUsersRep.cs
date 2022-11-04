@@ -1,4 +1,5 @@
 ﻿using ETrade.Core;
+using ETrade.DTO;
 using ETrade.Entity.Concretes;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace ETrade.Repos.Abstract
     public interface IUsersRep:IBaseRepository<Users>
     {
         Users CreateUser(Users users);
+        UsersDTO Login(string userName, string password);
     }
 }

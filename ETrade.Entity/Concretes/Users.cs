@@ -10,8 +10,9 @@ namespace ETrade.Entity.Concretes
 {
     public class Users:BaseEntity
     {
-        public string Name { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
         public bool Error { get; set; }
         public ICollection<BasketMaster> BasketMasters { get; set; }
         [ForeignKey("CountyId")]
