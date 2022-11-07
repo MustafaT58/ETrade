@@ -24,16 +24,13 @@ namespace ETrade.Dal.Migrations
 
             modelBuilder.Entity("ETrade.Entity.Concretes.BasketDetail", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Ratio")
@@ -45,9 +42,7 @@ namespace ETrade.Dal.Migrations
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id", "ProductId");
-
-                    b.HasIndex("OrderId");
+                    b.HasKey("OrderId", "ProductId");
 
                     b.HasIndex("ProductId");
 
@@ -63,6 +58,9 @@ namespace ETrade.Dal.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
 
                     b.Property<int>("EntityId")
                         .HasColumnType("int");
@@ -235,16 +233,16 @@ namespace ETrade.Dal.Migrations
                     b.Property<int>("CountyId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EntityName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Error")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("No")
                         .HasColumnType("int");

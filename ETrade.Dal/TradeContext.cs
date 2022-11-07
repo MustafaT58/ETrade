@@ -18,7 +18,7 @@ namespace ETrade.Dal
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BasketDetail>()                 //Fluent api kullanılarak birleşik anahtar oluşturuldu.
-                .HasKey(c => new { c.Id, c.ProductId });
+                .HasKey(c => new { c.OrderId, c.ProductId });
         }
         public DbSet<Cities> Cities { get; set; }
         public DbSet<Categories> Categories { get; set; }

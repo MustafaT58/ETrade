@@ -13,6 +13,7 @@ namespace ETrade.Entity.Concretes
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
         public int EntityId { get; set; }
+        public bool Completed { get; set; }
         public ICollection<BasketDetail> BasketDetails { get; set; }
         [ForeignKey("EntityId")]
         public Users Users { get; set; }

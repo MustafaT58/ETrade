@@ -141,8 +141,10 @@ namespace ETrade.Dal.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Error = table.Column<bool>(type: "bit", nullable: false),
                     EntityName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Avenue = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -167,7 +169,8 @@ namespace ETrade.Dal.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EntityId = table.Column<int>(type: "int", nullable: false)
+                    EntityId = table.Column<int>(type: "int", nullable: false),
+                    Completed = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -184,9 +187,8 @@ namespace ETrade.Dal.Migrations
                 name: "BasketDetails",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
                     UnitId = table.Column<int>(type: "int", nullable: false),
                     UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
@@ -194,7 +196,7 @@ namespace ETrade.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BasketDetails", x => new { x.Id, x.ProductId });
+                    table.PrimaryKey("PK_BasketDetails", x => new { x.OrderId, x.ProductId });
                     table.ForeignKey(
                         name: "FK_BasketDetails_BasketMasters_OrderId",
                         column: x => x.OrderId,
@@ -214,11 +216,6 @@ namespace ETrade.Dal.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BasketDetails_OrderId",
-                table: "BasketDetails",
-                column: "OrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BasketDetails_ProductId",

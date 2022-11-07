@@ -5,6 +5,7 @@ using ETrade.Entity.Concretes;
 using ETrade.Repos.Concretes;
 using ETrade.UI.Models;
 using ETrade.Uw;
+using ETrade.DTO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +28,11 @@ builder.Services.AddScoped<CityModel>();
 builder.Services.AddScoped<CategoriesModel>();
 builder.Services.AddScoped<UnitModel>();
 builder.Services.AddScoped<UsersModel>();
+builder.Services.AddScoped<BasketMaster>();
+builder.Services.AddScoped<BasketDetail>();
+builder.Services.AddScoped<BasketDetailModel>();
 builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromSeconds(15));
+
 
 
 

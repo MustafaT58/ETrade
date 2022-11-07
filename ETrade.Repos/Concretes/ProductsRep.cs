@@ -1,5 +1,6 @@
 ﻿using ETrade.Core;
 using ETrade.Dal;
+using ETrade.DTO;
 using ETrade.Entity.Concretes;
 using ETrade.Repos.Abstract;
 using System;
@@ -14,6 +15,11 @@ namespace ETrade.Repos.Concretes
     {
         public ProductsRep(TradeContext db) : base(db)
         {
+        }
+
+        public List<ProductDTO> GetProductsSelect()
+        {
+            return Set().Select(x => new ProductDTO { Id = x.Id, ProductName = x.ProductName }).ToList();
         }
     }
 }
