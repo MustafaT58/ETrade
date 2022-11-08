@@ -31,6 +31,7 @@ builder.Services.AddScoped<UsersModel>();
 builder.Services.AddScoped<BasketMaster>();
 builder.Services.AddScoped<BasketDetail>();
 builder.Services.AddScoped<BasketDetailModel>();
+
 builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromSeconds(15));
 
 

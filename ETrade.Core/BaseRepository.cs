@@ -26,10 +26,20 @@ namespace ETrade.Core
             Set().Remove(Find(Id));
             return true;
         }
+        public bool Delete(int Id, int Id2)
+        {
+            Set().Remove(Find(Id,Id2));
+            return true;
+        }
+
 
         public T Find(int Id)
         {
             return Set().Find(Id);
+        }
+        public T Find(int Id, int Id2)
+        {
+            return Set().Find(Id,Id2);
         }
 
         public List<T> List()

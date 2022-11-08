@@ -3,6 +3,7 @@ using ETrade.Dal;
 using ETrade.DTO;
 using ETrade.Entity.Concretes;
 using ETrade.Repos.Abstract;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,10 @@ namespace ETrade.Repos.Concretes
     {
         public ProductsRep(TradeContext db) : base(db)
         {
+        }
+        public Products FindWithVat(int Id)
+        {
+            return Set().Where(x => x.Id == Id).Include(x => x.Vat).FirstOrDefault();
         }
 
         public List<ProductDTO> GetProductsSelect()
