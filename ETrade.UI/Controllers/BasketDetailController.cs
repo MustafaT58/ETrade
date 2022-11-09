@@ -2,6 +2,7 @@
 using ETrade.UI.Models;
 using ETrade.Uw;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 
 namespace ETrade.UI.Controllers
 {
@@ -36,13 +37,30 @@ namespace ETrade.UI.Controllers
             _unit._basketDetailRep.Add(_basketDetail);
             _unit.Commit();
 
-            return RedirectToAction("Add", new {Id});
+            return RedirectToAction("Add", new { Id });
         }
-        public IActionResult Delete(int Id,int productId)
+        public IActionResult Delete(int Id, int productId)
         {
             _unit._basketDetailRep.Delete(Id, productId);
             _unit.Commit();
-            return RedirectToAction("Add", new {Id});
+            return RedirectToAction("Add", new { Id });
         }
+        public IActionResult Update(int Id, int productId)
+        {
+
+            return View(_unit._basketDetailRep.Find(Id, productId));
+        }
+        [HttpPost]
+        public IActionResult Update(int Amount, int Id, int productId)
+        {
+            var selectedDetail = _unit._basketDetailRep.Find(Id, productId);
+            selectedDetail.Amount = Amount;
+            _unit._basketDetailRep.Update(selectedDetail);
+            _unit.Commit();
+            return RedirectToAction("Add", new { Id });
+        }
+
+
+
     }
 }

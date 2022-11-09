@@ -12,5 +12,7 @@ namespace ETrade.UI.Models
         public int Amount { get; set; }
         public decimal Ratio { get; set; }
         public int UnitId { get; set; }
+        //public List<BasketDetail>   { get; set; }
     }
+  
 }

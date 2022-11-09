@@ -59,13 +59,13 @@ namespace ETrade.UI.Controllers
 
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                      return RedirectToAction("Index", "Home");
+                 
                 }
 
             }
             else
             {
-                ViewBag.Msg = "Kullanıcı Adı veya Şifre Hatası!!!";
                 return View();
             }
 

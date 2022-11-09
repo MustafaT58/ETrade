@@ -28,7 +28,6 @@ namespace ETrade.Uw
         public IUsersRep _usersRep { get; }
 
         public IVatRep _vatRep { get; }
-
         public void Commit()
         {
             _db.SaveChanges();
